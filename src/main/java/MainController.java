@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -21,7 +22,7 @@ public class MainController implements Initializable{
     @FXML
     private TextField login;
     @FXML
-    private TextField pass;
+    private PasswordField pass;
     @FXML
     private Label status;
 
@@ -33,7 +34,7 @@ public class MainController implements Initializable{
             String loginCur = login.getText();
             String passCur = pass.getText();
             if(DBCon.isCorrectLogin(loginCur, passCur)){
-
+                status.setText("Login or pass are correct");
             } else {
                 status.setText("Login or pass are incorrect");
             }

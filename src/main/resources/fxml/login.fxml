@@ -9,7 +9,7 @@
       <Pane layoutX="14.0" layoutY="13.0" prefHeight="95.0" prefWidth="226.0">
          <children>
             <TextField fx:id="login" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="198.0" promptText="Login" />
-            <TextField fx:id="pass" layoutX="14.0" layoutY="50.0" prefHeight="25.0" prefWidth="198.0" promptText="****" />
+            <PasswordField fx:id="pass" layoutX="14.0" layoutY="48.0" prefHeight="25.0" prefWidth="198.0" promptText="****" />
          </children>
       </Pane>
       <Pane layoutX="14.0" layoutY="97.0" prefHeight="36.0" prefWidth="226.0">

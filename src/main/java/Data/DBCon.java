@@ -12,7 +12,7 @@ import static Data.Log.*;
 public class DBCon {
     public static final Sql2o db;
     static {
-        db = new Sql2o("jdbc:mysql://localhost:3306/wtodo", "root", "root");
+        db = new Sql2o("jdbc:mysql://localhost:3306/wtodo?useSSL=false", "root", "root");
     }
 
     public static Sql2o getDB(){
