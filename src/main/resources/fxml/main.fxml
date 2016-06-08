@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="45.0" prefWidth="600.0">
+         <opaqueInsets>
+            <Insets bottom="3.0" />
+         </opaqueInsets>
+         <children>
+            <Label id="username" layoutX="14.0" layoutY="14.0" text="UserName">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+            </Label>
+            <Button id="settings" layoutX="474.0" layoutY="10.0" mnemonicParsing="false" text="Settings" />
+            <Button id="logout" layoutX="533.0" layoutY="10.0" mnemonicParsing="false" text="LogOut" />
+         </children>
+      </Pane>
+      <Pane prefHeight="355.0" prefWidth="394.0">
+         <children>
+            <Pane layoutX="14.0" layoutY="14.0" prefHeight="330.0" prefWidth="249.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="ProjectTitle">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView layoutX="14.0" layoutY="35.0" prefHeight="200.0" prefWidth="220.0" />
+                  <TextArea editable="false" layoutX="14.0" layoutY="246.0" prefHeight="70.0" prefWidth="220.0" promptText="Description" />
+               </children>
+            </Pane>
+            <Pane layoutX="263.0" layoutY="14.0" prefHeight="330.0" prefWidth="325.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="6.0" text="ToDo List">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="14.0" layoutY="35.0" prefHeight="200.0" prefWidth="301.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                    </content>
+                  </ScrollPane>
+                  <TextArea layoutX="14.0" layoutY="246.0" prefHeight="70.0" prefWidth="301.0" promptText="Description ToDo" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</VBox>
