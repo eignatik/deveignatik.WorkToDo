@@ -45,10 +45,13 @@
                   </Label>
                   <ScrollPane layoutX="14.0" layoutY="35.0" prefHeight="215.0" prefWidth="301.0" style="-fx-background-color: #589BCE;">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="298.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="298.0">
+                           <children>
+                              <ListView fx:id="todoList" layoutX="7.0" layoutY="8.0" prefHeight="200.0" prefWidth="272.0" />
+                           </children></AnchorPane>
                     </content>
                   </ScrollPane>
-                  <TextArea layoutX="14.0" layoutY="247.0" prefHeight="100.0" prefWidth="301.0" promptText="Description ToDo" />
+                  <TextArea fx:id="todoDescr" layoutX="14.0" layoutY="247.0" prefHeight="100.0" prefWidth="301.0" promptText="Description ToDo" />
                </children>
             </Pane>
          </children>
