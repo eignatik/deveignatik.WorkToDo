@@ -8,6 +8,8 @@ import Data.Entity.User;
 public class Session {
     private String user;
     private String userGroup;
+    private int userId;
+    private int projectId;
     private static final Session instance = new Session();
     private Session(){}
     public static Session getSession(){return instance;}
@@ -18,6 +20,22 @@ public class Session {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
     }
 
     public String getUserGroup() {

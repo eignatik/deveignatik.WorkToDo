@@ -1,6 +1,7 @@
 package Data.Controllers;
 
 import Data.DBCon;
+import Data.ModelDataApp;
 import Data.Session;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,6 +43,7 @@ public class LoginController implements Initializable{
             String passCur = pass.getText();
             if(DBCon.isCorrectLogin(loginCur, passCur)){
                 Session.getSession().setUser(loginCur);
+                Session.getSession().setUserId(ModelDataApp.getUserId(loginCur));
                 Stage newStage = new Stage();
                 newStage = (Stage) submit.getScene().getWindow();
                 newStage.close();

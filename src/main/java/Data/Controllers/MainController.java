@@ -2,6 +2,7 @@ package Data.Controllers;
 
 import Data.Entity.Project;
 import Data.Entity.ToDo;
+import Data.Log;
 import Data.ModelDataApp;
 import Data.Session;
 import javafx.beans.property.BooleanProperty;
@@ -11,17 +12,20 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static Data.Log.log;
 
 /**
  * Created by Eugen on 6/12/2016.
@@ -37,6 +41,8 @@ public class MainController implements Initializable {
     private TextArea todoDescr;
     @FXML
     private ListView<ToDo> todoList;
+    @FXML
+    private Button addButton;
     private int idProject;
 
 
@@ -65,6 +71,7 @@ public class MainController implements Initializable {
             public void changed(ObservableValue<? extends Project> observable, Project oldValue, Project newValue) {
                 if(newValue==null){return;}
                 idProject = projList.getSelectionModel().getSelectedItem().getIdProj();
+                Session.getSession().setProjectId(idProject);
                 MainController.this.showProjDescription(projList.getSelectionModel().getSelectedItem().getDescr());
                 MainController.this.showToDo(projList.getSelectionModel().getSelectedItem().getIdProj());
             }
@@ -86,6 +93,22 @@ public class MainController implements Initializable {
     public void showTodoDescription(String description){
         todoDescr.setText(description);
         System.out.println("Selected description: " + description);
+    }
+
+    public void addDialog() {
+        String file = "/fxml/addDialog.fxml";
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Parent root;
+        try{
+            root = (Parent)loader.load(getClass().getResourceAsStream(file));
+            stage.setTitle("Add ToDo");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch(Exception e){
+            log.error("Error of opening fxml file --- " + e);
+        }
+
     }
 
     public void showToDo(int id){
@@ -114,7 +137,7 @@ public class MainController implements Initializable {
                     protected void updateItem(ToDo t, boolean bln){
                         super.updateItem(t, bln);
                         if(t != null){
-                            setText(t.isCompleted() + " " + t.getTitle() + "  Employer: " + t.getIdEmp());
+                            setText(t.isCompleted() + " " + t.getTitle() + "  Employer: " + ModelDataApp.getUserLogin(t.getIdEmp()));
                         }
                     }
                 };
